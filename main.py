@@ -1,15 +1,3 @@
-board = [
-	[7,8,0,4,0,0,1,2,0],
-        [6,0,0,0,7,5,0,0,9],
-	[0,0,0,6,0,1,0,7,8],
-	[0,0,7,0,4,0,2,6,0],
-	[0,0,1,0,5,0,9,3,0],
-	[9,0,4,0,6,0,0,0,5],
-	[0,7,0,3,0,0,0,1,2],
-	[1,2,0,0,0,7,4,0,0],
-	[0,4,9,2,0,6,0,0,7]
-]
-
 def printBoard(board):
 	for i in range(9):
 		if i % 3 == 0 and i != 0:
@@ -64,6 +52,22 @@ def checkSquare(board, val, i, j):
 			if board[y][x] == val:
 				return False
 	return True
+
+def getBoard():
+	board = []
+
+	for i in range(9):
+		stringRow = input("row " + str(i + 1) + ":")
+		row = []
+
+		for char in stringRow:
+			row.append(int(char))
+			
+		board.append(row)
+
+	return board
+
+board = getBoard()
 
 printBoard(board)
 print()
