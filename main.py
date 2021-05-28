@@ -18,6 +18,6 @@ sudokuSolver.printBoard()
 
 
 if sudokuSolver.isValidBoard():
-    print("Woohoo!")
+    print("Woohoo it works!")
 else:
-    print("You fucked up...")
+    print("Uh oh it didn't work...")
