@@ -56,7 +56,7 @@ class Solver:
                         i, j = self.findEmpty()
         
                 for n in range(1, 10):
-                        if self.isValid(n, i, j):
+                        if self.isValidValue(n, i, j):
                                 self.board[i][j] = n
                                 
                                 if self.solveBoard():
@@ -73,7 +73,7 @@ class Solver:
                                         return i,j				
                 return None
 
-        def isValid(self, val, i, j):
+        def isValidValue(self, val, i, j):
                 for x in range(9): # check row
                         if self.board[i][x] == val:
                                 return False
@@ -88,6 +88,30 @@ class Solver:
 
                 for y in range(square_y * 3, square_y * 3 + 3):
                         for x in range(square_x * 3, square_x * 3 + 3):
-                                if self.board[y][x] == val:
+                                if self.board[y][x] == val and (y != i or x != j):
+                                        return False
+                return True
+
+        def isValidBoard(self):
+                for i in range(9): # check rows
+                        row = [self.board[i][x] for x in range(9)] # practice list comprehension
+                        has = [False for x in range(9)]
+                        for n in row:
+                                has[n - 1] = True
+                        for n in has:
+                                if not n:
+                                        return False
+                for i in range(9): # check columns
+                        column = [self.board[x][i] for x in range(9)]
+                        has = [False for x in range(9)]
+                        for n in row:
+                                has[n - 1] = True
+                        for n in has:
+                                if not n:
+                                        return False
+                print("You got this far")
+                for i in range(9): # check boxes
+                        for j in range(9):
+                                if not self.checkSquare(self.board[i][j], i, j):
                                         return False
                 return True

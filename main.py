@@ -15,3 +15,9 @@ sudokuSolver.printBoard()
 print()
 sudokuSolver.solveBoard()
 sudokuSolver.printBoard()
+
+
+if sudokuSolver.isValidBoard():
+    print("Woohoo!")
+else:
+    print("You fucked up...")
