@@ -109,7 +109,6 @@ class Solver:
                         for n in has:
                                 if not n:
                                         return False
-                print("You got this far")
                 for i in range(9): # check boxes
                         for j in range(9):
                                 if not self.checkSquare(self.board[i][j], i, j):
