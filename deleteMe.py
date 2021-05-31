@@ -1,5 +1,0 @@
-f = open("someFile.txt", 'r+')
-word = f.read(2)
-print(word)
-f.write("fuck you buddy\n")
-f.close()
